@@ -93,8 +93,15 @@ export default function Chart({ symbol }: ChartProps) {
       const res = await axios.get(`/api/history?symbol=${symbol}&timeframe=${timeframe}`);
       setBars(res.data.bars || []);
     } catch (err: unknown) {
-      const e = err as { response?: { data?: { error?: string } } };
-      setError(e?.response?.data?.error || "Failed to load chart data");
+      const e = err as { response?: { data?: { error?: { message?: string } | string } } };
+      const raw = e?.response?.data?.error;
+      const msg =
+        typeof raw === "string"
+          ? raw
+          : typeof raw === "object" && raw && "message" in raw && typeof (raw as any).message === "string"
+          ? (raw as any).message
+          : "Failed to load chart data";
+      setError(msg);
     } finally {
       setLoading(false);
     }

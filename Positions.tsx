@@ -21,8 +21,15 @@ export default function Positions({ refreshTrigger }: PositionsProps) {
       const res = await axios.get("/api/positions");
       setPositions(res.data.positions || []);
     } catch (err: unknown) {
-      const e = err as { response?: { data?: { error?: string } } };
-      setError(e?.response?.data?.error || "Failed to fetch positions");
+      const e = err as { response?: { data?: { error?: { message?: string } | string } } };
+      const raw = e?.response?.data?.error;
+      const msg =
+        typeof raw === "string"
+          ? raw
+          : typeof raw === "object" && raw && "message" in raw && typeof (raw as any).message === "string"
+          ? (raw as any).message
+          : "Failed to fetch positions";
+      setError(msg);
     } finally {
       setLoading(false);
     }

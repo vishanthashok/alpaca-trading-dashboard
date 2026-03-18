@@ -43,8 +43,15 @@ export default function AccountBalance({ refreshTrigger }: AccountBalanceProps) 
       const res = await axios.get("/api/account");
       setAccount(res.data.account);
     } catch (err: unknown) {
-      const e = err as { response?: { data?: { error?: string } } };
-      setError(e?.response?.data?.error || "Failed to fetch account");
+      const e = err as { response?: { data?: { error?: { message?: string } | string } } };
+      const raw = e?.response?.data?.error;
+      const msg =
+        typeof raw === "string"
+          ? raw
+          : typeof raw === "object" && raw && "message" in raw && typeof (raw as any).message === "string"
+          ? (raw as any).message
+          : "Failed to fetch account";
+      setError(msg);
     } finally {
       setLoading(false);
     }

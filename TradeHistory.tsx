@@ -48,8 +48,15 @@ export default function TradeHistory({ refreshTrigger }: TradeHistoryProps) {
       const res = await axios.get("/api/trades");
       setTrades(res.data.trades || []);
     } catch (err: unknown) {
-      const e = err as { response?: { data?: { error?: string } } };
-      setError(e?.response?.data?.error || "Failed to fetch trade history");
+      const e = err as { response?: { data?: { error?: { message?: string } | string } } };
+      const raw = e?.response?.data?.error;
+      const msg =
+        typeof raw === "string"
+          ? raw
+          : typeof raw === "object" && raw && "message" in raw && typeof (raw as any).message === "string"
+          ? (raw as any).message
+          : "Failed to fetch trade history";
+      setError(msg);
     } finally {
       setLoading(false);
     }
