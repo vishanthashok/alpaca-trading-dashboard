@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { alpacaClient } from "@/lib/alpaca";
+import { alpacaClient } from "../../../lib/alpaca";
 
 export async function GET() {
   try {

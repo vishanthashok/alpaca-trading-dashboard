@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { alpacaClient, OrderSide, OrderType } from "@/lib/alpaca";
+import { alpacaClient, OrderSide, OrderType } from "../../../lib/alpaca";
 
 interface OrderBody {
   symbol: string;

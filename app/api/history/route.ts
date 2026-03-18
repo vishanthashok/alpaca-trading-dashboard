@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { alpacaDataClient, Bar } from "@/lib/alpaca";
+import { alpacaDataClient, Bar } from "../../../lib/alpaca";
 import { format, subDays, subWeeks, subMonths } from "date-fns";
 
 export async function GET(request: NextRequest) {
