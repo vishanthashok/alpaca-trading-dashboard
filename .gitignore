@@ -5,6 +5,7 @@
 node_modules/
 .next/
 out/
+mnt/
 
 # Env / secrets
 .env
