@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Briefcase, TrendingUp, TrendingDown, RefreshCw, Loader2 } from "lucide-react";
 import axios from "axios";
-import { Position } from "@/lib/alpaca";
+import { Position } from "./lib/alpaca";
 
 interface PositionsProps {
   refreshTrigger?: number;

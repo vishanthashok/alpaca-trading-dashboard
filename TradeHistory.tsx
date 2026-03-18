@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Clock, RefreshCw, Loader2, CheckCircle, XCircle, AlertCircle } from "lucide-react";
 import axios from "axios";
-import { Order } from "@/lib/alpaca";
+import { Order } from "./lib/alpaca";
 
 interface TradeHistoryProps {
   refreshTrigger?: number;

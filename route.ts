@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { alpacaDataClient } from "@/lib/alpaca";
+import { alpacaDataClient } from "./lib/alpaca";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);

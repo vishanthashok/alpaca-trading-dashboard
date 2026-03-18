@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { DollarSign, RefreshCw, Loader2, Wallet, BarChart2 } from "lucide-react";
 import axios from "axios";
-import { Account } from "@/lib/alpaca";
+import { Account } from "./lib/alpaca";
 
 interface AccountBalanceProps {
   refreshTrigger?: number;
