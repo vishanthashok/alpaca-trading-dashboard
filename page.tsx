@@ -1,14 +1,14 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import Navbar from "@/components/Navbar";
-import Chart from "@/components/Chart";
-import OrderForm from "@/components/OrderForm";
-import Positions from "@/components/Positions";
-import AccountBalance from "@/components/AccountBalance";
-import TradeHistory from "@/components/TradeHistory";
-import PriceDisplay from "@/components/PriceDisplay";
-import Watchlist from "@/components/Watchlist";
+import Navbar from "./Navbar";
+import Chart from "./Chart";
+import OrderForm from "./OrderForm";
+import Positions from "./Positions";
+import AccountBalance from "./AccountBalance";
+import TradeHistory from "./TradeHistory";
+import PriceDisplay from "./PriceDisplay";
+import Watchlist from "./Watchlist";
 
 export default function Home() {
   const [symbol, setSymbol] = useState("AAPL");
