@@ -1,0 +1,19 @@
+.DS_Store
+*.log
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+
+# Env / secrets
+.env
+.env.*
+
+# TypeScript
+*.tsbuildinfo
+
+# Editor
+.vscode/
+.idea/
+
